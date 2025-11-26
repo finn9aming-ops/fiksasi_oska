@@ -1,4 +1,5 @@
 import { Search } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 interface LandingPageProps {
   searchQuery: string;
@@ -7,6 +8,14 @@ interface LandingPageProps {
 }
 
 export default function LandingPage({ searchQuery, onSearchChange, onSearch }: LandingPageProps) {
+  const [currentLogo, setCurrentLogo] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentLogo(prev => (prev + 1) % 2);
+    }, 1200);
+    return () => clearInterval(interval);
+  }, []);
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
@@ -21,10 +30,35 @@ export default function LandingPage({ searchQuery, onSearchChange, onSearch }: L
       <div className="max-w-lg w-full relative z-10 animate-fadeIn">
         <div className="text-center mb-12">
           <div className="inline-block mb-6">
-            <div className="w-20 h-20 bg-gradient-to-br from-[#D4A017] to-[#FFD700] rounded-full flex items-center justify-center shadow-2xl shadow-[#D4A017]/30 animate-float">
-              <svg className="w-10 h-10 text-[#0A1D37]" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
-              </svg>
+            <div className="relative w-32 h-32 mx-auto">
+              <div className={`absolute inset-0 transition-all duration-700 ${
+                currentLogo === 0
+                  ? 'opacity-100 scale-100 rotate-0'
+                  : 'opacity-0 scale-90 rotate-180'
+              }`}>
+                <svg viewBox="0 0 120 120" className="w-full h-full drop-shadow-2xl">
+                  <circle cx="60" cy="60" r="55" fill="#D4A017" opacity="0.2"/>
+                  <circle cx="60" cy="60" r="50" fill="none" stroke="#D4A017" strokeWidth="3"/>
+                  <text x="60" y="50" textAnchor="middle" fill="#D4A017" fontSize="16" fontWeight="bold">ZIEBA</text>
+                  <text x="60" y="70" textAnchor="middle" fill="#FFD700" fontSize="16" fontWeight="bold">ZOKA</text>
+                  <path d="M 35 85 L 85 85" stroke="#D4A017" strokeWidth="2"/>
+                  <circle cx="60" cy="35" r="8" fill="#D4A017"/>
+                </svg>
+              </div>
+              <div className={`absolute inset-0 transition-all duration-700 ${
+                currentLogo === 1
+                  ? 'opacity-100 scale-100 rotate-0'
+                  : 'opacity-0 scale-90 -rotate-180'
+              }`}>
+                <svg viewBox="0 0 120 120" className="w-full h-full drop-shadow-2xl">
+                  <circle cx="60" cy="60" r="55" fill="#FFD700" opacity="0.2"/>
+                  <circle cx="60" cy="60" r="50" fill="none" stroke="#FFD700" strokeWidth="3"/>
+                  <text x="60" y="50" textAnchor="middle" fill="#FFD700" fontSize="16" fontWeight="bold">SMAK</text>
+                  <text x="60" y="70" textAnchor="middle" fill="#D4A017" fontSize="16" fontWeight="bold">ZIE</text>
+                  <rect x="45" y="80" width="30" height="8" fill="#FFD700" rx="2"/>
+                  <polygon points="60,25 65,35 55,35" fill="#FFD700"/>
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -92,21 +126,8 @@ export default function LandingPage({ searchQuery, onSearchChange, onSearch }: L
           }
         }
 
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-
         .animate-fadeIn {
           animation: fadeIn 0.8s ease-out;
-        }
-
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
         }
       `}</style>
     </div>

@@ -4,6 +4,7 @@ export interface Candidate {
   k: string;
   b: number;
   p: number;
+  pranked: boolean;
   o: string;
 }
 
@@ -12,4 +13,5 @@ export interface AppState {
   selectedCandidate: Candidate | null;
   searchQuery: string;
   unlocked: boolean;
+  darkMode: boolean;
 }

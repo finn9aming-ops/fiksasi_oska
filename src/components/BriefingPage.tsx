@@ -44,8 +44,8 @@ export default function BriefingPage({ candidate, onViewResult, onBack }: Briefi
                 <div>
                   <h3 className="text-white font-semibold mb-2">Instruksi Penting</h3>
                   <p className="text-gray-300 text-sm leading-relaxed">
-                    Silakan baca instruksi di bawah ini dengan seksama sebelum membuka hasil fiksasi Anda.
-                    Pastikan Anda memahami setiap poin yang tertera.
+                    Silakan buka surat fiksasi Anda untuk melihat hasil lengkap.
+                    Pastikan informasi ini bersifat rahasia dan hanya untuk Anda.
                   </p>
                 </div>
               </div>
@@ -61,8 +61,8 @@ export default function BriefingPage({ candidate, onViewResult, onBack }: Briefi
                 <div>
                   <h3 className="text-white font-semibold mb-2">Surat Keputusan</h3>
                   <p className="text-gray-300 text-sm leading-relaxed">
-                    Surat keputusan resmi hanya akan muncul setelah Anda menekan tombol di bawah.
-                    Hasil yang ditampilkan bersifat final dan telah melalui proses seleksi yang ketat.
+                    Surat keputusan resmi akan ditampilkan setelah Anda menekan tombol di bawah.
+                    Hasil yang ditampilkan telah melalui proses seleksi yang ketat.
                   </p>
                 </div>
               </div>
@@ -87,9 +87,9 @@ export default function BriefingPage({ candidate, onViewResult, onBack }: Briefi
           </div>
 
           <div className="bg-gradient-to-r from-[#D4A017]/20 to-[#FFD700]/20 border border-[#D4A017]/30 rounded-2xl p-6 mb-8">
-            <p className="text-center text-gray-300 text-sm leading-relaxed">
+<p className="text-center text-gray-300 text-sm leading-relaxed">
               Setelah Anda membaca dan memahami seluruh instruksi di atas,
-              silakan tekan tombol di bawah untuk melihat surat kelulusan Anda.
+              silakan tekan tombol di bawah untuk membuka surat fiksasi Anda.
             </p>
           </div>
 
@@ -97,12 +97,12 @@ export default function BriefingPage({ candidate, onViewResult, onBack }: Briefi
             onClick={onViewResult}
             className="w-full bg-gradient-to-r from-[#D4A017] to-[#FFD700] text-[#0A1D37] font-bold py-5 rounded-xl hover:shadow-2xl hover:shadow-[#D4A017]/50 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] text-lg flex items-center justify-center gap-3 animate-pulse-glow"
           >
-            <FileText className="w-6 h-6" />
-            Lihat Surat Kelulusan
+<FileText className="w-6 h-6" />
+            Buka Surat Saya
           </button>
 
           <p className="text-center text-gray-500 text-xs mt-6">
-            Dengan membuka surat kelulusan, Anda menyatakan telah membaca dan memahami seluruh instruksi.
+            Dengan membuka surat, Anda menyatakan telah membaca dan memahami seluruh instruksi.
           </p>
         </div>
       </div>
